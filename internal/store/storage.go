@@ -6,10 +6,10 @@ import (
 )
 
 type Storage struct {
-	Posts interface{
+	Posts interface {
 		Create(context.Context, *Post) error
 	}
-	Users interface{
+	Users interface {
 		Create(context.Context, *User) error
 	}
 }
@@ -19,4 +19,4 @@ func NewPostgresStorage(db *sql.DB) Storage {
 		Posts: &PostStore{db},
 		Users: &UserStore{db},
 	}
-}	
+}
